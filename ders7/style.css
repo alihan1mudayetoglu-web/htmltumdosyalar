@@ -1,0 +1,14 @@
+p{
+  padding=15px;
+  margin=15px;
+}
+.custom-class{
+  background-color: #4C41E5;
+  border: 4px double black;
+}
+#custom-id{
+  background-color: #F75034;
+  border: 10px double black;
+}
+
+
