@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Kim Kod Milyoneri Olmak İster</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<div class="app">
+  <header class="topbar">
+    <h1>Mini e-Okul Not Sistemi</h1>
+    <p>Öğretmen not girebilir, öğrenci kendi notunu görebilir</p>
+  </header>
+
+  <section class="login-card">
+    <h2>Giriş Türü Seç</h2>
+
+    <div class="role-buttons">
+      <button onclick="selectRole('teacher')">👨‍🏫 Öğretmen Girişi</button>
+      <button onclick="selectRole('student')">🧑‍🎓 Öğrenci Girişi</button>
+    </div>
+
+    <div id="selectedRoleText" class="selected-role">Henüz giriş türü seçilmedi.</div>
+  </section>
+
+  <section id="teacherPanel" class="panel hidden">
+    <h2>Öğretmen Paneli</h2>
+
+    <div class="form-grid">
+      <div>
+        <label>Öğrenci Seç</label>
+        <select id="studentSelect">
+          <option value="Ali">Ali</option>
+          <option value="Ayşe">Ayşe</option>
+          <option value="Mehmet">Mehmet</option>
+          <option value="Zeynep">Zeynep</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Ders Seç</label>
+        <select id="lessonSelect">
+          <option value="Matematik">Matematik</option>
+          <option value="Türkçe">Türkçe</option>
+          <option value="Fen Bilimleri">Fen Bilimleri</option>
+          <option value="Sosyal Bilgiler">Sosyal Bilgiler</option>
+          <option value="İngilizce">İngilizce</option>
+           <option value="Arapça">Arapça</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Not Gir</label>
+        <input type="number" id="gradeInput" min="0" max="100" placeholder="0 - 100">
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button onclick="addGrade()">➕ Not Ekle</button>
+      <button onclick="resetSystem()" class="danger">🗑 Tüm Notları Sıfırla</button>
+    </div>
+
+    <h3>Tüm Öğrenci Notları</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Öğrenci</th>
+            <th>Ders</th>
+            <th>Not</th>
+          </tr>
+        </thead>
+        <tbody id="teacherTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="studentPanel" class="panel hidden">
+    <h2>Öğrenci Paneli</h2>
+
+    <div class="student-choose">
+      <label>Öğrenci Adı Seç</label>
+      <select id="studentViewSelect" onchange="showStudentGrades()">
+        <option value="Alihan">Alihan</option>
+        <option value="Taylan">Taylan</option>
+        <option value="BozdoğanBey">BozdoğanBey</option>
+      </select>
+    </div>
+
+    <h3 id="studentTitle">Öğrenci Notları</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ders</th>
+            <th>Not</th>
+          </tr>
+        </thead>
+        <tbody id="studentTableBody"></tbody>
+      </table>
+    </div>
+    
+    <script src="script.js"></script>
+    
+  </section>
+</div>
