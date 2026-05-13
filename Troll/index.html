@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Güvenlik Kontrolü</title>
+<style>
+body {
+  margin:0;
+  height:100vh;
+  background:#000;
+  color:#00ff99;
+  font-family:monospace;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+#box {
+  font-size:22px;
+  padding:20px;
+}
+.shake {
+  animation: shake 0.2s infinite;
+}
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(5px); }
+  50% { transform: translate(-5px); }
+  75% { transform: translate(5px); }
+  100% { transform: translate(0); }
+}
+.confetti {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: red;
+  animation: fall 3s linear infinite;
+}
+@keyframes fall {
+  0% { top: -10px; }
+  100% { top: 110vh; }
+}
+</style>
+</head>
+<body>
+
+<div id="box">📡 Telefon taranıyor...</div>
+
+<script>
+const box = document.getElementById("box");
+
+// Sahte titreşim
+if (navigator.vibrate) {
+  navigator.vibrate([200,100,200,100,200]);
+}
+
+// Sahte shake
+box.classList.add("shake");
+
+// Aşama 2
+setTimeout(() => {
+  box.innerHTML = "⚠️ Tehlikeli yazılım tespit edildi!";
+}, 2000);
+
+// Aşama 3
+setTimeout(() => {
+  box.innerHTML = "🔋 Pil hızla tükeniyor... (%7)";
+}, 4000);
+
+// Aşama 4 – ŞAKA
+setTimeout(() => {
+  box.classList.remove("shake");
+  box.innerHTML = "😂 ŞAKA!<br><br>Rahat ol 😄<br>Bu sadece zararsız bir şakaydı.";
+  launchConfetti();
+}, 6000);
+
+// Konfeti
+function launchConfetti() {
+  for (let i = 0; i < 50; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration = (Math.random()*2+2)+"s";
+    document.body.appendChild(c);
+  }
+}
+</script>
+
+</body>
+</html>
