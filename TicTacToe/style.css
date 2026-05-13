@@ -1,0 +1,36 @@
+body{
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+#board {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px auto;
+  gap: 5px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #333;
+}
+
+#status {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#reset {
+  padding: 10px 20px;
+  font-size: 16px;
+}
