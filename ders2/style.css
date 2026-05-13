@@ -1,0 +1,13 @@
+body {
+  background:    #8B008B;
+  /*bu kısımda arka plan rengi seçildi.*/
+}
+
+p{
+  color: red;
+  font-size: 20px;
+  /*bu kısımda yazının rengi ve boyutu belirlendi.*/
+}
+h1{
+  color: white;
+}
