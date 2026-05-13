@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benim Sanat ve Medya Sayfam</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>Benim Sanat ve Medya Sayfam</h1>
+    <p>Kendi çizimimi yapıyor, başlık ekliyor ve kart olarak paylaşıyorum 🎨</p>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Çiz, Kaydet, Paylaş</h2>
+      <p>Bu sayfada kendi resmini çiz ve gönderi olarak ekle.</p>
+    </div>
+  </section>
+
+  <section class="editor card">
+    <h2>Çizim Alanı</h2>
+
+    <div class="tools">
+      <label for="colorPicker">Renk Seç:</label>
+      <input type="color" id="colorPicker" value="#7c3aed">
+
+      <div class="palette" id="palette">
+        <button class="color-swatch" data-color="#7c3aed" style="background:#7c3aed;"></button>
+        <button class="color-swatch" data-color="#ec4899" style="background:#ec4899;"></button>
+        <button class="color-swatch" data-color="#3b82f6" style="background:#3b82f6;"></button>
+        <button class="color-swatch" data-color="#10b981" style="background:#10b981;"></button>
+        <button class="color-swatch" data-color="#f59e0b" style="background:#f59e0b;"></button>
+        <button class="color-swatch" data-color="#111827" style="background:#111827;"></button>
+      </div>
+
+      <label for="brushSize">Fırça Boyutu:</label>
+      <input type="range" id="brushSize" min="2" max="30" value="6">
+      <span id="brushValue">6 px</span>
+
+      <label for="brushType">Fırça Türü:</label>
+      <select id="brushType">
+        <option value="round">Normal</option>
+        <option value="square">Kare</option>
+        <option value="neon">Neon</option>
+      </select>
+
+      <button id="eraserBtn" type="button">Silgi</button>
+      <button id="undoBtn" type="button">Geri Al</button>
+      <button id="clearCanvas" type="button">Temizle</button>
+      <button id="downloadBtn" type="button">İndir</button>
+    </div>
+
+    <div class="canvas-info">
+      <span>Aktif araç: <strong id="activeToolText">Fırça</strong></span>
+      <span>Çizim sayısı: <strong id="strokeCounter">0</strong></span>
+    </div>
+
+    <canvas id="drawingCanvas" width="700" height="300"></canvas>
+
+    <div class="post-form">
+      <input type="text" id="postTitle" placeholder="Çizimin başlığını yaz">
+      <textarea id="postDescription" placeholder="Çizimin hakkında kısa bir açıklama yaz"></textarea>
+      <button id="addDrawingPost" type="button">Gönderi Olarak Ekle</button>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <h2 class="gallery-title">Çizim Gönderileri</h2>
+    <div class="gallery" id="gallery">
+      <div class="post-card sample">
+        <img src="https://picsum.photos/400/220?random=10" alt="Örnek görsel">
+        <div class="post-content">
+          <h3>Örnek Gönderi</h3>
+          <p>Burada çizimler kart olarak görünecek.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 - SUN2312 SAYFASI</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
