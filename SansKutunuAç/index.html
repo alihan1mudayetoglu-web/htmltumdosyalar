@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Şans Kutusu Oyunu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 Şans Kutunu Aç!</h1>
+    <div class="box-container">
+      <!-- 6 adet kutu -->
+      <div class="box" onclick="openBox(this)"></div>
+      <div class="box" onclick="openBox(this)"></div>
+      <div class="box" onclick="openBox(this)"></div>
+      <div class="box" onclick="openBox(this)"></div>
+      <div class="box" onclick="openBox(this)"></div>
+      <div class="box" onclick="openBox(this)"></div>
+    </div>
+    <p class="counter">Kalan kutu: <span id="left">6</span></p>
+    <button onclick="resetGame()">🔁 Yeniden Başla</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
