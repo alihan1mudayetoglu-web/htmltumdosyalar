@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Mini e-Okul</title>
+
+<style>
+
+:root{
+--bg:linear-gradient(135deg,#667eea,#764ba2);
+--card:#ffffff;
+--primary:#4f46e5;
+--text:#111;
+}
+
+.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--primary:#3b82f6;
+--text:#f1f5f9;
+}
+
+body{
+margin:0;
+font-family:Segoe UI;
+background:var(--bg);
+color:var(--text);
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:30px;
+}
+
+.card{
+background:var(--card);
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+margin-bottom:20px;
+}
+
+h1{
+margin-top:0;
+}
+
+button{
+background:var(--primary);
+border:none;
+color:white;
+padding:10px 15px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+opacity:.9;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th{
+background:var(--primary);
+color:white;
+padding:12px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.good{
+color:#22c55e;
+font-weight:bold;
+}
+
+.bad{
+color:#ef4444;
+font-weight:bold;
+}
+
+.hidden{
+display:none;
+}
+
+.theme{
+float:right;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<button class="theme" onclick="toggleTheme()">Tema</button>
+
+<h1>Mini e-Okul</h1>
+
+<button onclick="showLogin('teacher')">👨‍🏫 Öğretmen</button>
+<button onclick="showLogin('student')">🎓 Öğrenci</button>
+
+</div>
+
+<div id="loginCard" class="card hidden">
+
+<h2 id="loginTitle"></h2>
+
+<input id="loginName" placeholder="İsim">
+<input id="loginPass" type="password" placeholder="Şifre">
+
+<button onclick="login()">Giriş</button>
+
+</div>
+
+<div id="teacherPanel" class="card hidden">
+
+<h2>Öğretmen Paneli</h2>
+
+<select id="studentSelect"></select>
+<select id="lessonSelect"></select>
+
+<input id="gradeInput" type="number" placeholder="Not">
+
+<button onclick="addGrade()">Not Ekle</button>
+
+<table>
+
+<thead>
+<tr>
+<th>Öğrenci</th>
+<th>Ders</th>
+<th>Not</th>
+<th>Sil</th>
+</tr>
+</thead>
+
+<tbody id="teacherTable"></tbody>
+
+</table>
+
+</div>
+
+<div id="studentPanel" class="card hidden">
+
+<h2>Öğrenci Paneli</h2>
+
+<select id="studentView" onchange="showStudentGrades()"></select>
+
+<table>
+
+<thead>
+<tr>
+<th>Ders</th>
+<th>Not</th>
+</tr>
+</thead>
+
+<tbody id="studentTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+let role=""
+
+let teacherAccount={name:"Alihan",pass:"1234"}
+
+let students=["Alihan","Taylan","BozdoğanBey","Muhammet"]
+
+let lessons=["Matematik","Türkçe","Fen","İngilizce","Arapça"]
+
+let grades=JSON.parse(localStorage.getItem("grades"))||[
+
+{student:"Alihan",lesson:"Matematik",grade:95},
+{student:"Alihan",lesson:"Fen",grade:92},
+{student:"Taylan",lesson:"Türkçe",grade:90},
+{student:"BozdoğanBey",lesson:"İngilizce",grade:88},
+{student:"Muhammet",lesson:"Arapça",grade:93}
+
+]
+
+function save(){
+localStorage.setItem("grades",JSON.stringify(grades))
+}
+
+function hidePanels(){
+
+document.getElementById("teacherPanel").classList.add("hidden")
+document.getElementById("studentPanel").classList.add("hidden")
+
+}
+
+function showLogin(r){
+
+hidePanels()
+
+role=r
+
+document.getElementById("loginCard").classList.remove("hidden")
+
+document.getElementById("loginTitle").innerText=
+r==="teacher"?"Öğretmen Girişi":"Öğrenci Girişi"
+
+}
+
+function login(){
+
+let name=document.getElementById("loginName").value
+let pass=document.getElementById("loginPass").value
+
+hidePanels()
+
+if(role==="teacher"){
+
+if(name===teacherAccount.name && pass===teacherAccount.pass){
+
+document.getElementById("teacherPanel").classList.remove("hidden")
+
+loadSelects()
+renderTeacherTable()
+
+}else{
+
+alert("Hatalı giriş")
+
+}
+
+}
+
+if(role==="student"){
+
+if(students.includes(name) && pass==="1234"){
+
+document.getElementById("studentPanel").classList.remove("hidden")
+
+loadSelects()
+
+document.getElementById("studentView").value=name
+
+showStudentGrades()
+
+}else{
+
+alert("Hatalı giriş")
+
+}
+
+}
+
+}
+
+function loadSelects(){
+
+let s1=document.getElementById("studentSelect")
+let s2=document.getElementById("studentView")
+let l=document.getElementById("lessonSelect")
+
+s1.innerHTML=""
+s2.innerHTML=""
+l.innerHTML=""
+
+students.forEach(st=>{
+s1.innerHTML+=`<option>${st}</option>`
+s2.innerHTML+=`<option>${st}</option>`
+})
+
+lessons.forEach(le=>{
+l.innerHTML+=`<option>${le}</option>`
+})
+
+}
+
+function addGrade(){
+
+let student=document.getElementById("studentSelect").value
+let lesson=document.getElementById("lessonSelect").value
+let grade=Number(document.getElementById("gradeInput").value)
+
+if(!grade) return
+
+grades.push({student,lesson,grade})
+
+save()
+
+renderTeacherTable()
+
+}
+
+function renderTeacherTable(){
+
+let table=document.getElementById("teacherTable")
+
+table.innerHTML=""
+
+grades.forEach((g,i)=>{
+
+let c=""
+
+if(g.grade>=85) c="good"
+if(g.grade<50) c="bad"
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${g.student}</td>
+<td>${g.lesson}</td>
+<td class="${c}">${g.grade}</td>
+
+<td>
+<button onclick="deleteGrade(${i})">Sil</button>
+</td>
+
+</tr>
+
+`
+
+})
+
+}
+
+function deleteGrade(i){
+
+grades.splice(i,1)
+
+save()
+
+renderTeacherTable()
+
+}
+
+function showStudentGrades(){
+
+let student=document.getElementById("studentView").value
+
+let table=document.getElementById("studentTable")
+
+table.innerHTML=""
+
+let list=grades.filter(g=>g.student===student)
+
+let total=0
+
+list.forEach(g=>{
+
+total+=g.grade
+
+let c=""
+
+if(g.grade>=85) c="good"
+if(g.grade<50) c="bad"
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${g.lesson}</td>
+<td class="${c}">${g.grade}</td>
+
+</tr>
+
+`
+
+})
+
+let avg=(total/list.length).toFixed(1)
+
+let result=avg>=70?"Başarılı 🎉":"Geliştirilmeli 📚"
+
+table.innerHTML+=`
+
+<tr>
+<td><b>Ortalama</b></td>
+<td><b>${avg}</b></td>
+</tr>
+
+<tr>
+<td colspan="2"><b>${result}</b></td>
+</tr>
+
+`
+
+}
+
+function toggleTheme(){
+document.body.classList.toggle("dark")
+}
+
+loadSelects()
+
+</script>
+
+</body>
+</html>
