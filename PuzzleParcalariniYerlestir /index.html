@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🧩 Puzzle Oyunu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🧩 Puzzle Parçalarını Yerleştir</h1>
+  <div class="game-container">
+    <div class="pieces">
+      <img src="https://via.placeholder.com/100?text=1" id="p1" draggable="true">
+      <img src="https://via.placeholder.com/100?text=2" id="p2" draggable="true">
+      <img src="https://via.placeholder.com/100?text=3" id="p3" draggable="true">
+    </div>
+
+    <div class="board">
+      <div class="drop" data-id="p1"></div>
+      <div class="drop" data-id="p2"></div>
+      <div class="drop" data-id="p3"></div>
+    </div>
+  </div>
+
+  <p id="message"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
