@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini e-Okul</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="card">
+    <button class="theme" onclick="toggleTheme()">Tema</button>
+
+    <h1>Mini e-Okul</h1>
+
+    <button onclick="showLogin('teacher')">👨‍🏫 Öğretmen</button>
+    <button onclick="showLogin('student')">🎓 Öğrenci</button>
+  </div>
+
+  <div id="loginCard" class="card hidden">
+    <h2 id="loginTitle"></h2>
+
+    <input id="loginName" placeholder="İsim">
+    <input id="loginPass" type="password" placeholder="Şifre">
+
+    <button onclick="login()">Giriş</button>
+  </div>
+
+  <div id="teacherPanel" class="card hidden">
+    <h2>Öğretmen Paneli</h2>
+
+    <select id="studentSelect"></select>
+    <select id="lessonSelect"></select>
+
+    <input id="gradeInput" type="number" placeholder="Not">
+
+    <button onclick="addGrade()">Not Ekle</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Öğrenci</th>
+          <th>Ders</th>
+          <th>Not</th>
+          <th>Sil</th>
+        </tr>
+      </thead>
+      <tbody id="teacherTable"></tbody>
+    </table>
+  </div>
+
+  <div id="studentPanel" class="card hidden">
+    <h2>Öğrenci Paneli</h2>
+
+    <select id="studentView" onchange="showStudentGrades()"></select>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Ders</th>
+          <th>Not</th>
+        </tr>
+      </thead>
+      <tbody id="studentTable"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
