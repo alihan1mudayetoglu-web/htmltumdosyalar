@@ -1,0 +1,257 @@
+body {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  background: linear-gradient(135deg, #dbeafe, #fce7f3);
+  color: #1f2937;
+}
+
+.header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.header h1 {
+  margin: 0 0 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 42px;
+}
+
+.header p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.hero {
+  padding: 40px 20px 10px;
+  text-align: center;
+}
+
+.hero-text h2 {
+  font-size: 30px;
+  color: #7c3aed;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 18px;
+}
+
+.card {
+  width: 90%;
+  max-width: 950px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.editor h2 {
+  margin-top: 0;
+  color: #7c3aed;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.tools label {
+  font-weight: 600;
+}
+
+.tools input[type="color"] {
+  width: 52px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.tools input[type="range"] {
+  cursor: pointer;
+}
+
+.tools select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.tools button,
+.post-form button {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.tools button:hover,
+.post-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(91, 33, 182, 0.25);
+}
+
+#eraserBtn.active {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.palette {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px #d1d5db;
+  cursor: pointer;
+  padding: 0;
+}
+
+.canvas-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #4b5563;
+  flex-wrap: wrap;
+}
+
+#drawingCanvas {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border: 3px dashed #a78bfa;
+  border-radius: 16px;
+  background: #fffdfd;
+  cursor: crosshair;
+  box-shadow: inset 0 0 12px rgba(124, 58, 237, 0.08);
+}
+
+.post-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.post-form input,
+.post-form textarea {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.post-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.gallery-section {
+  width: 92%;
+  max-width: 1100px;
+  margin: 30px auto 40px;
+}
+
+.gallery-title {
+  text-align: center;
+  color: #7c3aed;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.post-card {
+  width: 320px;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+}
+
+.post-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #f3f4f6;
+}
+
+.post-content {
+  padding: 16px;
+}
+
+.post-content h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #5b21b6;
+}
+
+.post-content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer {
+  text-align: center;
+  padding: 18px;
+  background: #7c3aed;
+  color: white;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .hero-text h2 {
+    font-size: 24px;
+  }
+
+  .tools {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .canvas-info {
+    flex-direction: column;
+  }
+
+  .post-card {
+    width: 100%;
+    max-width: 360px;
+  }
+}
