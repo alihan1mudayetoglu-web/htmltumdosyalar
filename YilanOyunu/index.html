@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yilan Oyunu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <section class="hud">
+      <div><span>Skor</span><strong id="score">0</strong></div>
+      <div><span>Rekor</span><strong id="best">0</strong></div>
+    </section>
+    <section class="stage">
+      <canvas id="canvas" width="600" height="600"></canvas>
+      <div class="panel" id="panel">
+        <h1>Yilan Oyunu</h1>
+        <p>Yemi ye, duvara ve kendine carpma.</p>
+        <button id="startBtn">Basla</button>
+      </div>
+    </section>
+    <section class="pad">
+      <span></span><button id="upBtn">↑</button><span></span>
+      <button id="leftBtn">←</button><button id="downBtn">↓</button><button id="rightBtn">→</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
