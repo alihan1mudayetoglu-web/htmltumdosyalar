@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balon Patlatma</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <section class="hud">
+      <div><span>Skor</span><strong id="score">0</strong></div>
+      <div><span>Süre</span><strong id="time">30</strong></div>
+      <div><span>Kombo</span><strong id="combo">1x</strong></div>
+    </section>
+    <section class="stage">
+      <canvas id="canvas" width="900" height="540"></canvas>
+      <div class="panel" id="panel">
+        <h1>Balon Patlatma</h1>
+        <p>Balonlara tikla, kombo yap.</p>
+        <button id="startBtn">Basla</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
