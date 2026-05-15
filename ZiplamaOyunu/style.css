@@ -1,0 +1,65 @@
+* { box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #264653, #2a9d8f);
+  color: #1f2a30;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.game { width: min(960px, calc(100vw - 24px)); }
+.hud {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.hud div { padding: 10px 14px; border-radius: 8px; background: #fff3d6; }
+.hud span { display: block; font-size: 12px; color: #667; }
+.hud strong { font-size: 28px; }
+.stage {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #fff3d6;
+  border-radius: 8px;
+  aspect-ratio: 5 / 3;
+  background: #88d8d0;
+}
+canvas { width: 100%; height: 100%; display: block; }
+.panel {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 24px;
+  color: white;
+  text-align: center;
+  background: rgba(38, 70, 83, 0.72);
+}
+.panel.hidden { display: none; }
+h1 { margin: 0; font-size: clamp(38px, 8vw, 76px); }
+p { margin: 0; font-size: 20px; }
+button {
+  border: 0;
+  border-radius: 8px;
+  background: #e9c46a;
+  color: #1f2a30;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+#startBtn { padding: 12px 24px; }
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+.buttons button { height: 58px; font-size: 30px; }
+@media (max-width: 680px) {
+  .stage { aspect-ratio: 4 / 5; }
+  .hud strong { font-size: 22px; }
+}
