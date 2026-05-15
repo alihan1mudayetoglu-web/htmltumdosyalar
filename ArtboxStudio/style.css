@@ -1,0 +1,271 @@
+:root {
+  --bg: linear-gradient(135deg, #dbeafe, #fce7f3);
+  --panel: rgba(255, 255, 255, 0.92);
+  --text: #1f2937;
+  --primary: #7c3aed;
+  --secondary: #ec4899;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+body.dark {
+  --bg: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+  --panel: rgba(17, 24, 39, 0.92);
+  --text: #f3f4f6;
+  --primary: #a78bfa;
+  --secondary: #f472b6;
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.app {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-family: "Pacifico", cursive;
+  font-size: 40px;
+  color: var(--primary);
+}
+
+.topbar p {
+  margin: 8px 0 0;
+}
+
+.topbar-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.clock {
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-weight: 700;
+}
+
+#themeToggle,
+#fillBg,
+#clearCanvas,
+#addDrawingPost,
+.like-btn,
+.delete-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+#themeToggle,
+#fillBg,
+#clearCanvas,
+#addDrawingPost {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+}
+
+#themeToggle:hover,
+#fillBg:hover,
+#clearCanvas:hover,
+#addDrawingPost:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.hero {
+  margin: 24px 0;
+}
+
+.hero-card,
+.card {
+  background: var(--panel);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.hero-card {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(236, 72, 153, 0.18));
+}
+
+.hero-card h2 {
+  margin-top: 0;
+  color: var(--primary);
+  font-size: 30px;
+}
+
+.controls h2,
+.search-section h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.tool-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(124, 58, 237, 0.08);
+  padding: 10px 14px;
+  border-radius: 14px;
+}
+
+#drawingCanvas {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  background: white;
+  border: 3px dashed var(--primary);
+  border-radius: 20px;
+  cursor: crosshair;
+}
+
+.post-form {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.post-form input,
+.post-form textarea,
+#searchInput {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 16px;
+  font-size: 16px;
+  font-family: "Fredoka", sans-serif;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.post-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.search-section {
+  margin-top: 24px;
+}
+
+.gallery {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 20px;
+}
+
+.post-card {
+  background: var(--panel);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: 0.25s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+}
+
+.post-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: #fff;
+}
+
+.post-body {
+  padding: 16px;
+}
+
+.post-body h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.post-body p {
+  margin-top: 0;
+  line-height: 1.5;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.like-btn {
+  background: #fee2e2;
+}
+
+.delete-btn {
+  background: #e5e7eb;
+}
+
+.like-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.05);
+}
+
+.sample-card {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar h1 {
+    font-size: 32px;
+  }
+
+  .hero-card h2 {
+    font-size: 24px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
