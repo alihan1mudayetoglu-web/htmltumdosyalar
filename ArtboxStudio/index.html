@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>ArtBox-Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+ 
+ş<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<div class="app">
+  <header class="topbar">
+    <div>
+      <h1>ArtBox Studio</h1>
+      <p>Çiz, paylaş, keşfet 🎨✨</p>
+    </div>
+
+    <div class="topbar-right">
+      <div class="clock" id="clock">00:00:00</div>
+      <button id="themeToggle">🌙 Tema Değiştir</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-card">
+      <h2>Kendi Dijital Çizimini Oluştur</h2>
+      <p>
+        Renk seç, fırça boyutunu ayarla, çizimini yap ve kart olarak paylaş.
+      </p>
+    </div>
+  </section>
+
+  <section class="controls card">
+    <h2>Çizim Paneli</h2>
+
+    <div class="toolbar">
+      <div class="tool-group">
+        <label for="colorPicker">Renk:</label>
+        <input type="color" id="colorPicker" value="#7c3aed">
+      </div>
+
+      <div class="tool-group">
+        <label for="brushSize">Fırça:</label>
+        <input type="range" id="brushSize" min="2" max="24" value="6">
+      </div>
+
+      <div class="tool-group">
+        <label for="bgColorPicker">Zemin:</label>
+        <input type="color" id="bgColorPicker" value="#ffffff">
+      </div>
+
+      <button id="fillBg">Zemini Boya</button>
+      <button id="clearCanvas">Temizle</button>
+    </div>
+
+    <canvas id="drawingCanvas" width="900" height="320"></canvas>
+
+    <div class="post-form">
+      <input type="text" id="postTitle" placeholder="Çizimin başlığı">
+      <textarea id="postDescription" placeholder="Çizimin hakkında kısa bir açıklama yaz"></textarea>
+      <button id="addDrawingPost">Gönderi Olarak Paylaş</button>
+    </div>
+  </section>
+
+  <section class="search-section card">
+    <h2>Gönderiler</h2>
+    <input type="text" id="searchInput" placeholder="Başlığa göre ara...">
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="post-card sample-card">
+      <img src="https://picsum.photos/500/280?random=44" alt="örnek">
+      <div class="post-body">
+        <h3>Örnek Kart</h3>
+        <p>Bugün burada öğrencilerin kendi çizimleri görünecek.</p>
+        <div class="post-actions">
+          <button class="like-btn">❤️ 0</button>
+          <button class="delete-btn">🗑 Sil</button>
+        </div>
+      </div>
+    </div>
+   <script src="script.js"></script>
+  </section>
+</div>
