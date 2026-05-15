@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ziplama Platformu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <section class="hud">
+      <div><span>Skor</span><strong id="score">0</strong></div>
+      <div><span>Para</span><strong id="coins">0</strong></div>
+      <div><span>Can</span><strong id="lives">3</strong></div>
+    </section>
+    <section class="stage">
+      <canvas id="canvas" width="900" height="540"></canvas>
+      <div class="panel" id="panel">
+        <h1>Ziplama Platformu</h1>
+        <p>Platformlarda ilerle, paralari topla.</p>
+        <button id="startBtn">Basla</button>
+      </div>
+    </section>
+    <section class="buttons">
+      <button id="leftBtn">←</button>
+      <button id="jumpBtn">↑</button>
+      <button id="rightBtn">→</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
