@@ -1,0 +1,97 @@
+:root {
+  --bg: linear-gradient(135deg, #667eea, #764ba2);
+  --card: #ffffff;
+  --primary: #4f46e5;
+  --text: #111;
+}
+
+.dark {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --primary: #3b82f6;
+  --text: #f1f5f9;
+}
+
+body {
+  margin: 0;
+  font-family: Segoe UI;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+button {
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th {
+  background: var(--primary);
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.good {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.bad {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.theme {
+  float: right;
+}
