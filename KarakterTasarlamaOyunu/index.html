@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karakter Tasarlama Oyunu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game-page">
+
+<header class="top-header">
+<h1>Karakter Tasarlama Oyunu</h1>
+<p>Kendi karakterini oluştur ✨</p>
+</header>
+
+<section class="main-area">
+
+<div class="character-panel">
+
+<h2>Karakter</h2>
+
+<div class="character-stage">
+
+<div class="character" id="character">
+
+<div class="hat" id="hat">🧢</div>
+
+<div class="face">
+
+<div class="hair" id="hair"></div>
+
+<div class="eyes">
+<span></span>
+<span></span>
+</div>
+
+<div class="mouth"></div>
+
+<div class="glasses hidden" id="glasses">🕶️</div>
+
+</div>
+
+<div class="body shirt-blue" id="body"></div>
+<div class="pants pants-black" id="pants"></div>
+
+<div class="shoes">👟 👟</div>
+
+<div class="pet hidden" id="pet">🐶</div>
+
+</div>
+</div>
+</div>
+
+<div class="control-panel">
+
+<h2>Kontroller</h2>
+
+<div class="control-box">
+<h3>Karakter Türü</h3>
+<button onclick="setCharacter('normal')">Normal</button>
+<button onclick="setCharacter('hero')">Kahraman</button>
+<button onclick="setCharacter('funny')">Komik</button>
+</div>
+
+<div class="control-box">
+<h3>Saç</h3>
+<button onclick="setHairColor('#2d1b0e')">Siyah</button>
+<button onclick="setHairColor('#7a4a20')">Kahverengi</button>
+<button onclick="setHairColor('#d4a017')">Sarı</button>
+<button onclick="setHairColor('#c2185b')">Pembe</button>
+</div>
+
+<div class="control-box">
+<h3>Tişört</h3>
+<button onclick="setShirt('shirt-blue')">Mavi</button>
+<button onclick="setShirt('shirt-red')">Kırmızı</button>
+<button onclick="setShirt('shirt-green')">Yeşil</button>
+<button onclick="removeShirt()">Çıkar</button>
+</div>
+
+<div class="control-box">
+<h3>Pantolon</h3>
+<button onclick="setPants('pants-black')">Siyah</button>
+<button onclick="setPants('pants-purple')">Mor</button>
+<button onclick="setPants('pants-orange')">Turuncu</button>
+<button onclick="removePants()">Çıkar</button>
+</div>
+
+<div class="control-box">
+<h3>Şapka</h3>
+<button onclick="setHat('🧢')">Şapka</button>
+<button onclick="setHat('🎩')">Top Hat</button>
+<button onclick="setHat('👑')">Taç</button>
+<button onclick="removeHat()">Çıkar</button>
+</div>
+
+<div class="control-box">
+<h3>Aksesuar</h3>
+<button onclick="toggleGlasses()">Gözlük Aç/Kapat</button>
+<button onclick="togglePet()">Evcil Hayvan Aç/kapat</button>
+</div>
+
+<div class="control-box">
+<h3>Özel İşlemler</h3>
+<button onclick="randomCharacter()">Rastgele</button>
+<button onclick="resetCharacter()">Sıfırla</button>
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
