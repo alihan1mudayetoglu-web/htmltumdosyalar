@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Benim Blog Sitem</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Benim Blog Sitem</h1>
+</header>
+
+<nav>
+  <a href="#anasayfa">Ana Sayfa</a>
+  <a href="#hakkinda">Hakkında</a>
+  <a href="#iletisim">İletişim</a>
+</nav>
+
+<section id="anasayfa" class="hero">
+  <h2>Web Dünyasına Hoşgeldiniz 💥</h2>
+  <p>Kendi blog sitemizi tasarlıyoruz.</p>
+</section>
+
+<section class="posts">
+
+  <div class="card">
+    <h3>📝 Gönderi 1</h3>
+    <p>Bu benim ilk blog yazım.</p>
+  </div>
+
+  <div class="card">
+    <h3>💻 Gönderi 2</h3>
+    <p>CSS ile tasarım yapmayı öğreniyorum.</p>
+  </div>
+
+</section>
+
+<section class="add-post">
+  <h2>Yeni Gönderi Ekle</h2>
+
+  <input type="text" id="title" placeholder="Başlık girin">
+  <br>
+
+  <textarea id="content" placeholder="İçerik yazın"></textarea>
+  <br>
+
+  <button onclick="addPost()">Gönderi Ekle</button>
+</section>
+
+<section id="hakkinda" class="about">
+  <h2>Hakkında</h2>
+  <p>Ben web tasarımı öğreniyorum. HTML, CSS ve JavaScript ile projeler yapıyorum.</p>
+</section>
+
+<section id="iletisim" class="contact">
+  <h2>İletişim</h2>
+
+<form action="https://formspree.io/f/maykexyz" method="POST">
+  <input type="text" name="name" placeholder="Adınız" required>
+  <br>
+
+  <input type="email" name="email" placeholder="Email" required>
+  <br>
+
+  <textarea name="message" placeholder="Mesajınız" required></textarea>
+  <br>
+
+  <button type="submit">Gönder</button>
+</form>
+
+</section>
+
+<footer>
+  <p>© 2026 SUN2312 Web Tasarım</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
