@@ -37,4 +37,4 @@ Sorularınız için issue açabilirsiniz.
 
 ## Açıklama
 
-Bu Aslında arduinotumdosyalar yerine gidiyor ama htmltumdosyalar yerine koydum ve index.htmlde tam kod olmuş onu chatgptye index.html sini çıkar derseniz size verir zaten css ve js var orada haberiniz olsun. 
+Bu Aslında arduinotumdosyalar yerine gidiyor ama htmltumdosyalar yerinede koydum ve index.htmlde tam kod olmuş onu chatgptye index.html sini çıkar derseniz size verir zaten css ve js var orada haberiniz olsun. 
